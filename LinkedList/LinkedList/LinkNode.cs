@@ -8,12 +8,12 @@ namespace LinkedList
 {
     internal class LinkNode
     {
-        private string _text;
-        private DateTime _date;
-        
-        //private LinkNode _dalsi;
-        //private LinkNode _predchozi;
-        
+        public string text = "";
+        public DateTime date;
+
+        public LinkNode dalsi;
+        public LinkNode predchozi;
+
 
 
         //public LinkNode Dalsi
@@ -27,9 +27,9 @@ namespace LinkedList
         //    set => _predchozi = value;
         //}
 
-        public LinkNode(DateTime date)
+        public LinkNode(DateTime _date)
         {
-            _date = date;
+            date = _date;
         }
         //public void Dalsi()
         //{
@@ -42,7 +42,7 @@ namespace LinkedList
 
         public void LogDate()
         {
-            Console.WriteLine(_date);
+            Console.WriteLine(date);
         }
 
 

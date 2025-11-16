@@ -12,3 +12,4 @@ C:\Škola\3. Ročník\Al\LinkedList\LinkedList\LinkedList\obj\Debug\net8.0\refin
 C:\Škola\3. Ročník\Al\LinkedList\LinkedList\LinkedList\obj\Debug\net8.0\LinkedList.pdb
 C:\Škola\3. Ročník\Al\LinkedList\LinkedList\LinkedList\obj\Debug\net8.0\LinkedList.genruntimeconfig.cache
 C:\Škola\3. Ročník\Al\LinkedList\LinkedList\LinkedList\obj\Debug\net8.0\ref\LinkedList.dll
+C:\Škola\3. Ročník\Al\LinkedList\LinkedList\LinkedList\obj\Debug\net8.0\LinkedList.sourcelink.json

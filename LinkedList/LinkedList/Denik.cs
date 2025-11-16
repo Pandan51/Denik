@@ -8,44 +8,54 @@ namespace LinkedList
 {
     internal class Denik
     {
-        private LinkNode _soucasny;
-        private LinkNode _prvni;
-        private LinkNode _posledni;
-        private int _nodeCount = 0;
+        public LinkNode soucasny;
+        public LinkNode prvni;
+        public LinkNode posledni;
+        public int nodeCount = 0;
 
-        public LinkNode Soucasny
+        //public LinkNode Soucasny
+        //{
+        //    set
+        //    {
+        //        _soucasny = value;
+        //        _nodeCount++;
+        //    }
+        //}
+        //public LinkNode First
+        //{
+        //    get => _prvni;
+        //}
+        //public LinkNode Last
+        //{   
+        //    get => _posledni;
+
+        //    //private set
+        //}
+        //public int NodeCount
+        //{
+        //    get => _nodeCount;
+        //}
+        public bool NodeCountIsZero()
         {
-            set
+            if(nodeCount == 0)
             {
-                _soucasny = value;
-                _nodeCount++;
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
-        public LinkNode First
-        {
-            get => _prvni;
-        }
-        public LinkNode Last
-        {   
-            get => _posledni;
-
-            //private set
-        }
-        public int NodeCount
-        {
-            get => _nodeCount;
-        }
-
         
         public void Zacatek()
         {
-            _soucasny = _prvni;
+            soucasny = prvni;
         }
         public void Konec()
         {
-            _soucasny = _posledni;
+            soucasny = posledni;
         }
-        public void Menu()
+        public void Menu(string inputText)
         {
             Console.Clear();
             string[] tutorialLines = ["------------------------------------------------",
@@ -58,8 +68,8 @@ namespace LinkedList
             "- zavri: Zavření deníku",
             "------------------------------------------------",
             "",
-            $"Počet záznamů: {_nodeCount}",
-            "Zadej příkaz:"
+            $"Počet záznamů: {nodeCount}",
+            ""
              ];
 
             foreach (string line in tutorialLines)
@@ -67,9 +77,15 @@ namespace LinkedList
                 Console.WriteLine(line);
             }
 
-            if(_nodeCount >0)
+            if(NodeCountIsZero())
             {
-                Console.WriteLine("Text");
+                Console.WriteLine("Zadej příkaz:");
+            }
+            else if(nodeCount > 0)
+            {
+                soucasny.LogDate();
+                
+                Console.WriteLine($"\nText:\n{inputText}{soucasny.text}");
             }
         }
 

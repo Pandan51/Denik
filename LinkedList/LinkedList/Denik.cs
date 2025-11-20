@@ -85,10 +85,140 @@ namespace LinkedList
             {
                 soucasny.LogDate();
                 
-                Console.WriteLine($"\nText:\n{inputText}{soucasny.text}");
+                Console.WriteLine($"\nText:\n{soucasny.text}{inputText}");
             }
         }
 
+        //public void Commands(string prikaz)
+        //{
+        //    switch (prikaz)
+        //    {
+
+        //        case "predchozi":
+
+        //            if (soucasny == prvni)
+        //            {
+        //                soucasny = posledni;
+        //            }
+        //            else
+        //            {
+        //                soucasny = soucasny.predchozi;
+        //            }
+        //            inputText = "";
+        //            break;
+        //        case "dalsi":
+        //            if (soucasny == posledni)
+        //            {
+        //                soucasny = prvni;
+        //            }
+        //            else
+        //            {
+        //                soucasny = soucasny.dalsi;
+        //            }
+        //            inputText = "";
+        //            break;
+        //        case "zacatek":
+        //            soucasny = prvni;
+        //            break;
+        //        case "konec":
+        //            soucasny = posledni;
+        //            break;
+        //        //Příkaz nový   
+        //        case "novy":
+        //            int tries = 0;
+        //            while (tries < 3)
+        //            {
+        //                Console.WriteLine("Zadej datum (dd/mm/yy):");
+        //                string input = Console.ReadLine();
+        //                DateTime dateValue;
+        //                if (DateTime.TryParse(input, out dateValue))
+        //                {
+        //                    Console.WriteLine($"Valid date: {dateValue.ToShortDateString()}");
+        //                    LinkNode node = new LinkNode(dateValue);
+        //                    if (nodeCount == 0)
+        //                    {
+        //                        soucasny = node;
+        //                        soucasny.dalsi = node;
+        //                        soucasny.predchozi = node;
+        //                        prvni = soucasny;
+        //                        posledni = soucasny;
+
+
+        //                    }
+        //                    else
+        //                    {
+        //                        node.dalsi = soucasny.dalsi;
+
+        //                        node.predchozi = soucasny;
+        //                        //node.predchozi = soucasny;
+        //                        soucasny.dalsi.predchozi = node;
+        //                        soucasny.dalsi = node;
+
+
+        //                        if (soucasny == posledni)
+        //                        {
+        //                            posledni = soucasny.dalsi;
+        //                            posledni.dalsi = prvni;
+        //                            prvni.predchozi = posledni;
+        //                        }
+
+        //                    }
+        //                    nodeCount++;
+        //                    break;
+        //                }
+        //                else
+        //                {
+        //                    Console.WriteLine("Invalid date format!");
+        //                    tries++;
+        //                    Console.ReadKey();
+        //                }
+
+
+
+        //            }
+        //            break;
+        //        case "uloz":
+        //            soucasny.text += inputText;
+        //            inputText = "";
+        //            break;
+        //        case "smaz":
+        //            soucasny.predchozi.dalsi = soucasny.dalsi;
+        //            soucasny.dalsi.predchozi = soucasny.predchozi;
+        //            if (nodeCount == 1)
+        //            {
+        //                soucasny = null;
+        //            }
+        //            else if (soucasny == prvni)
+        //            {
+        //                soucasny = soucasny.dalsi;
+        //            }
+        //            else if (soucasny == posledni)
+        //            {
+        //                soucasny = soucasny.predchozi;
+        //            }
+        //            else
+        //            {
+        //                soucasny = prvni;
+        //            }
+        //            nodeCount--;
+
+        //            break;
+        //        case "zavri":
+        //            Environment.Exit(0);
+        //            break;
+        //        //Vypíše date
+        //        case "logDate":
+        //            soucasny.LogDate();
+        //            Console.ReadKey();
+        //            break;
+        //        default:
+        //            if (nodeCount != 0)
+        //            {
+        //                inputText += $"{prikaz}\n";
+        //            }
+        //            break;
+        //    }
+        //}
 
     }
 }

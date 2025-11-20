@@ -14,14 +14,19 @@
                 denik.Menu(inputText);
 
                 prikaz = Console.ReadLine();
+
+                //denik.Commands(prikaz);
                 //Console.WriteLine(prikaz);
-                
+
 
                 switch (prikaz)
                 {
-                    
+
                     case "predchozi":
-                        
+                        if(denik.NodeCountIsZero())
+                        {
+                            break;
+                        }
                         if (denik.soucasny == denik.prvni)
                         {
                             denik.soucasny = denik.posledni;
@@ -33,6 +38,10 @@
                         inputText = "";
                         break;
                     case "dalsi":
+                        if (denik.NodeCountIsZero())
+                        {
+                            break;
+                        }
                         if (denik.soucasny == denik.posledni)
                         {
                             denik.soucasny = denik.prvni;
@@ -44,10 +53,20 @@
                         inputText = "";
                         break;
                     case "zacatek":
+                        if (denik.NodeCountIsZero())
+                        {
+                            break;
+                        }
                         denik.soucasny = denik.prvni;
+                        inputText = "";
                         break;
                     case "konec":
+                        if (denik.NodeCountIsZero())
+                        {
+                            break;
+                        }
                         denik.soucasny = denik.posledni;
+                        inputText = "";
                         break;
                     //Příkaz nový   
                     case "novy":
@@ -61,15 +80,15 @@
                             {
                                 Console.WriteLine($"Valid date: {dateValue.ToShortDateString()}");
                                 LinkNode node = new LinkNode(dateValue);
-                                if(denik.nodeCount == 0)
+                                if (denik.nodeCount == 0)
                                 {
                                     denik.soucasny = node;
                                     denik.soucasny.dalsi = node;
                                     denik.soucasny.predchozi = node;
                                     denik.prvni = denik.soucasny;
                                     denik.posledni = denik.soucasny;
-                                    
-                                    
+
+
                                 }
                                 else
                                 {
@@ -79,15 +98,15 @@
                                     //node.predchozi = denik.soucasny;
                                     denik.soucasny.dalsi.predchozi = node;
                                     denik.soucasny.dalsi = node;
-                                    
 
-                                    if(denik.soucasny == denik.posledni)
+
+                                    if (denik.soucasny == denik.posledni)
                                     {
                                         denik.posledni = denik.soucasny.dalsi;
                                         denik.posledni.dalsi = denik.prvni;
                                         denik.prvni.predchozi = denik.posledni;
                                     }
-                                    
+
                                 }
                                 denik.nodeCount++;
                                 break;
@@ -104,21 +123,29 @@
                         }
                         break;
                     case "uloz":
+                        if (denik.NodeCountIsZero())
+                        {
+                            break;
+                        }
                         denik.soucasny.text += inputText;
                         inputText = "";
                         break;
                     case "smaz":
+                        if (denik.NodeCountIsZero())
+                        {
+                            break;
+                        }
                         denik.soucasny.predchozi.dalsi = denik.soucasny.dalsi;
                         denik.soucasny.dalsi.predchozi = denik.soucasny.predchozi;
-                        if(denik.nodeCount == 1)
+                        if (denik.nodeCount == 1)
                         {
                             denik.soucasny = null;
                         }
-                        else if(denik.soucasny == denik.prvni)
+                        else if (denik.soucasny == denik.prvni)
                         {
                             denik.soucasny = denik.soucasny.dalsi;
                         }
-                        else if(denik.soucasny == denik.posledni)
+                        else if (denik.soucasny == denik.posledni)
                         {
                             denik.soucasny = denik.soucasny.predchozi;
                         }
@@ -127,24 +154,32 @@
                             denik.soucasny = denik.prvni;
                         }
                         denik.nodeCount--;
-                        
+                        inputText = "";
+
                         break;
                     case "zavri":
                         Environment.Exit(0);
                         break;
-                        //Vypíše date
+                    //Vypíše date
                     case "logDate":
-                        denik.soucasny.LogDate();
-                        Console.ReadKey();
+                        if (!denik.NodeCountIsZero())
+                        {
+                            denik.soucasny.LogDate();
+                            Console.ReadKey();
+                        }
+                        
                         break;
                     default:
-                        if(denik.nodeCount != 0)
+                        if (denik.nodeCount != 0)
                         {
                             inputText += $"{prikaz}\n";
                         }
                         break;
                 }
             }
+
         }
+
+        
     }
 }

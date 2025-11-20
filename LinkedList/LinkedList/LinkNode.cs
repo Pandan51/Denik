@@ -9,7 +9,7 @@ namespace LinkedList
     internal class LinkNode
     {
         public string text = "";
-        public DateTime date;
+        private DateTime date;
 
         public LinkNode dalsi;
         public LinkNode predchozi;
@@ -42,18 +42,12 @@ namespace LinkedList
 
         public void LogDate()
         {
-            Console.WriteLine(date);
+            Console.WriteLine(date.ToShortDateString());
         }
 
 
 
-        public void AddAfter() { }
-        public void AddBefore() { }
-        public void AddFirst() { }
-        public void AddLast() { }
-
-        public void RemoveFirst() { }
-        public void RemoveLast() { }
+        
 
     }
 }
